@@ -9,14 +9,14 @@ SET (CONTEXT_ENGINE luatex)
 
 IF(CONTEXT_COMPILER)
     ADD_CUSTOM_COMMAND(
-	OUTPUT		${cv_BINARY_DIR}/TDocument.pdf
-	DEPENDS		${cv_BINARY_DIR}/TDocument.tex
+	OUTPUT		${cv_BINARY_DIR}/cv.pdf
+	DEPENDS		${cv_BINARY_DIR}/cv.tex
 	COMMAND		${CONTEXT_COMPILER} --engine=${CONTEXT_ENGINE} --silent
-	ARGS		${cv_SOURCE_DIR}/TDocument.tex
+	ARGS		${cv_SOURCE_DIR}/cv.tex
 	COMMENT		"Generating ConTeXt PDF file"
     )
 
     ADD_CUSTOM_TARGET(ConTeXt ALL echo
-	DEPENDS		${cv_BINARY_DIR}/TDocument.pdf
+	DEPENDS		${cv_BINARY_DIR}/cv.pdf
     )
 ENDIF(CONTEXT_COMPILER)
