@@ -4,13 +4,17 @@ CMAKE_MINIMUM_REQUIRED (VERSION 2.6)
 # project name
 PROJECT (cv)
 
+SET (TEXML_COMPILER texml)
 SET (CONTEXT_COMPILER texexec)
 SET (CONTEXT_ENGINE luatex)
 
 IF(CONTEXT_COMPILER)
     ADD_CUSTOM_COMMAND(
 	OUTPUT		${cv_BINARY_DIR}/cv.pdf
-	DEPENDS		${cv_BINARY_DIR}/cv.tex
+	DEPENDS		${cv_BINARY_DIR}/cv.xml
+	COMMAND		${TEXML_COMPILER} -e utf8 -c
+	ARGS		${cv_SOURCE_DIR}/cv.xml
+	ARGS		${cv_SOURCE_DIR}/cv.tex
 	COMMAND		${CONTEXT_COMPILER} --engine=${CONTEXT_ENGINE} --silent
 	ARGS		${cv_SOURCE_DIR}/cv.tex
 	COMMENT		"Generating ConTeXt PDF file"
