@@ -15,6 +15,11 @@ if (NOT LUATEX_FOUND)
     message (FATAL_ERROR "This project depends on LuaTeX (www.luatex.org).\nInstall LuaTeX or set the PATH variable to point to the executables.")
 endif (NOT LUATEX_FOUND)
 
+find_package (XZ REQUIRED)
+if (NOT XZ_FOUND)
+    message (FATAL_ERROR "This project depends on xz-utils (www.tukaani.org/xz).\nInstall xz-utils or set the PATH variable to point to the executables.")
+endif (NOT XZ_FOUND)
+
 # building project
 ADD_CUSTOM_COMMAND(
     OUTPUT		${CMAKE_BINARY_DIR}/src/cv.pdf

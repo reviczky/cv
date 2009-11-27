@@ -1,12 +1,12 @@
 # The module defines the following variables:
 #   TEXLIVE_EXECUTABLE - path to texlive command line executables
 #   TEXLIVE_FOUND - true if the command line executables were found
-
 set (CONTEXT_COMPILER texexec)
 set (CONTEXT_ENGINE luatex)
 
-find_program (TEXLIVE_EXECUTABLE texexec
-    /usr/bin
+find_program (TEXLIVE_EXECUTABLE
+    NAMES texexec
+    PATHS /usr/bin
 )
 mark_as_advanced (TEXLIVE_EXECUTABLE)
 

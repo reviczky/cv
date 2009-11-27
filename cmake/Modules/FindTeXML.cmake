@@ -1,11 +1,11 @@
 # The module defines the following variables:
 #   TEXML_EXECUTABLE - path to texml command line executables
 #   TEXML_FOUND - true if the command line executables were found
-
 set (TEXML_COMPILER texml)
 
-find_program (TEXML_EXECUTABLE texml
-    /usr/bin
+find_program (TEXML_EXECUTABLE
+    NAMES texml
+    PATHS /usr/bin
 )
 mark_as_advanced (TEXML_EXECUTABLE)
 

@@ -1,9 +1,9 @@
 # The module defines the following variables:
 #   LUATEX_EXECUTABLE - path to luatex command line executables
 #   LUATEX_FOUND - true if the command line executables were found
-
-find_program (LUATEX_EXECUTABLE luatex
-    /usr/bin
+find_program (LUATEX_EXECUTABLE
+    NAMES luatex
+    PATHS /usr/bin
 )
 mark_as_advanced (LUATEX_EXECUTABLE)
 
